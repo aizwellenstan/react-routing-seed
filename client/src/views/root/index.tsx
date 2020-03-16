@@ -23,10 +23,10 @@ const Wrapper = styled.div`
 
 var pageNow = 'Login';
 
-if (localStorage.getItem('pageNow')) {
+if (localStorage.getItem('UnitypageNow')) {
   pageNow = localStorage.getItem('UnitypageNow').toString();
 }
-var Main = Login;
+var Main = "Home"
 
 switch (pageNow) {
   case 'Home':
