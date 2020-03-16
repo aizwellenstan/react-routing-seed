@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Page } from 'client/src/components/page';
 import { Helmet } from 'react-helmet';
 import { styled } from 'client/src/styles';
-import Template from './components/template.html';
+import Template from '../../../../../FetPocWebGL/index.html';
 import { Redirect } from 'react-router-dom';
 
 var htmlDoc = { __html: Template };
