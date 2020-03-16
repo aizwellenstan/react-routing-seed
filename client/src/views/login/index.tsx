@@ -54,6 +54,7 @@ export class Login extends React.Component<{}, MyState> {
             alert('ユーザ名かパスワードが間違っています');
             this.setState({ loading: false });
           } else {
+            this.setState({ loading: false });
             if (res.data.AccountInfo.token) {
               localStorage.setItem('login', 'true');
               localStorage.setItem('token', res.data.AccountInfo.token);
@@ -69,7 +70,6 @@ export class Login extends React.Component<{}, MyState> {
             }
             setTimeout(() => {
               console.log("loggedin")
-              this.setState({ loading: false });
               localStorage.setItem('UnitypageNow', 'Home');
               window.location.reload();
             }, 1000);

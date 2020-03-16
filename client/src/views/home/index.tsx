@@ -21,37 +21,38 @@ export const Home = React.memo(() => {
     -webkit-overflow-scrolling: touch;
   `;
 
-  if (localStorage.getItem('login') !== 'true') {
+  if (localStorage.getItem('login') == 'true' ) {
+    return (
+      <>
+        <Helmet>
+          <link
+            rel="stylesheet"
+            href="https://product.nadi3docms.com/nadidemo4/assets/css/font-awesome.min.css"
+          />
+          <link
+            rel="stylesheet"
+            href="https://product.nadi3docms.com/nadidemo4/assets/css/owl.carousel.css"
+          />
+          <link
+            rel="stylesheet"
+            href="https://product.nadi3docms.com/nadidemo4/assets/css/style.css"
+          />
+          <link
+            rel="stylesheet"
+            href="https://product.nadi3docms.com/nadidemo4/assets/css/animate.css"
+          />
+        </Helmet>
+        <Page>
+          <Wrapper>
+            <div dangerouslySetInnerHTML={htmlDoc} />
+          </Wrapper>
+          {/* <SidebarContainer />
+          <TimetableContainer /> */}
+        </Page>
+      </>
+    );
+  } else {
     localStorage.setItem('UnitypageNow', 'Login');
     window.location.reload();
   }
-  return (
-    <>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://product.nadi3docms.com/nadidemo4/assets/css/font-awesome.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://product.nadi3docms.com/nadidemo4/assets/css/owl.carousel.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://product.nadi3docms.com/nadidemo4/assets/css/style.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://product.nadi3docms.com/nadidemo4/assets/css/animate.css"
-        />
-      </Helmet>
-      <Page>
-        <Wrapper>
-          <div dangerouslySetInnerHTML={htmlDoc} />
-        </Wrapper>
-        {/* <SidebarContainer />
-        <TimetableContainer /> */}
-      </Page>
-    </>
-  );
 });
