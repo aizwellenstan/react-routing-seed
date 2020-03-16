@@ -70,7 +70,7 @@ export class Login extends React.Component<{}, MyState> {
             setTimeout(() => {
               console.log("loggedin")
               this.setState({ loading: false });
-              return <Redirect to="/" />
+              return <Redirect to="https://nadidemoasset.nadi3docms.com/static/" />
             }, 1000);
           }
         });
@@ -81,7 +81,7 @@ export class Login extends React.Component<{}, MyState> {
 
   public render() {
     if (localStorage.getItem('login') == 'true') {
-      return <Redirect to="/" />
+      return <Redirect to="https://nadidemoasset.nadi3docms.com/static/" />
     }
     if (this.state.loading) {
       return (

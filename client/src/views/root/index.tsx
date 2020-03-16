@@ -30,8 +30,8 @@ export const Root: React.SFC = React.memo(() => {
           <Wrapper>
             <Banner />
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/login" component={Login} />
+              <Route exact path="https://nadidemoasset.nadi3docms.com/static/" component={Home} />
+              <Route path="https://nadidemoasset.nadi3docms.com/static/login" component={Login} />
             </Switch>
             <GlobalStyle />
           </Wrapper>
