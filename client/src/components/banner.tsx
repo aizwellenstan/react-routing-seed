@@ -94,9 +94,15 @@ const OriginalLink = styled.a`
   }
 `;
 
+const handleLogin = () => {
+  localStorage.setItem('UnitypageNow', 'Login');
+  window.location.reload();
+};
+
 const handleLogout = () => {
   localStorage.removeItem('login');
-  return <Redirect to="/login" />
+  localStorage.setItem('UnitypageNow', 'Login');
+  window.location.reload();
 };
 
 export const Banner = React.memo(() => {
@@ -206,7 +212,10 @@ export const Banner = React.memo(() => {
         >
           {/* <FontAwesomeIcon icon={faExternalLinkSquareAlt} /> */}
           <Link
-            to="/login"
+            to="/"
+            onClick={() => {
+              handleLogin();
+            }}
             style={{ textDecoration: 'none' }}
           >
             <span style={{ color: 'white' }}>

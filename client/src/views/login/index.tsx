@@ -70,7 +70,8 @@ export class Login extends React.Component<{}, MyState> {
             setTimeout(() => {
               console.log("loggedin")
               this.setState({ loading: false });
-              return <Redirect to="https://nadidemoasset.nadi3docms.com/static/" />
+              localStorage.setItem('UnitypageNow', 'Home');
+              window.location.reload();
             }, 1000);
           }
         });
@@ -81,7 +82,8 @@ export class Login extends React.Component<{}, MyState> {
 
   public render() {
     if (localStorage.getItem('login') == 'true') {
-      return <Redirect to="https://nadidemoasset.nadi3docms.com/static/" />
+      localStorage.setItem('UnitypageNow', 'Home');
+      window.location.reload();
     }
     if (this.state.loading) {
       return (

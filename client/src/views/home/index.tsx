@@ -22,7 +22,8 @@ export const Home = React.memo(() => {
   `;
 
   if (localStorage.getItem('login') !== 'true') {
-    return <Redirect to="/login" />
+    localStorage.setItem('UnitypageNow', 'Login');
+    window.location.reload();
   }
   return (
     <>

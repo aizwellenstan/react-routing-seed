@@ -2,7 +2,6 @@ import * as React from 'react';
 import { ThemeProvider, styled } from 'client/src/styles';
 import { I18nextProvider } from 'react-i18next';
 import { getLocale } from 'client/src/locales';
-import { Switch, Route } from 'react-router-dom';
 import { theme } from 'client/src/styles/theme';
 import { Banner } from 'client/src/components/banner';
 import { GlobalStyle } from './global-style';
@@ -22,6 +21,24 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.backgroundNormal};
 `;
 
+var pageNow = 'Login';
+
+if (localStorage.getItem('pageNow')) {
+  pageNow = localStorage.getItem('UnitypageNow').toString();
+}
+var Main = Login;
+
+switch (pageNow) {
+  case 'Home':
+    Main = Home;
+    break;
+  case 'Login':
+    Main = Login;
+    break;
+  default:
+    Main = Login;
+}
+
 export const Root: React.SFC = React.memo(() => {
   return (
     <>
@@ -29,10 +46,7 @@ export const Root: React.SFC = React.memo(() => {
         <ThemeProvider theme={theme}>
           <Wrapper>
             <Banner />
-            <Switch>
-              <Route exact path="https://nadidemoasset.nadi3docms.com/static/" component={Home} />
-              <Route path="https://nadidemoasset.nadi3docms.com/static/login" component={Login} />
-            </Switch>
+            <Main />
             <GlobalStyle />
           </Wrapper>
         </ThemeProvider>
